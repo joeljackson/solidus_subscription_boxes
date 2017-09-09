@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'solidus'
   s.add_dependency "solidus_support"
-  s.add_dependency "solidus_subscriptions"
+  s.add_dependency "solidus_subscriptions-alpha"
   s.add_dependency 'deface'
   s.add_dependency 'state_machines'
   s.add_dependency 'i18n'
