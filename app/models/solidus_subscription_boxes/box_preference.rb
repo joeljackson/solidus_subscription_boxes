@@ -1,4 +1,4 @@
-module SolidusSubcriptionBoxes
+module SolidusSubscriptionBoxes
   class BoxPreference
     belongs_to :preferable, polymorphic: true
     serialize :preference, Array
