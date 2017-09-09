@@ -1,0 +1,41 @@
+.container-fluid
+  section.how-it-works
+    .row.text-center.how-it-works.background-grey
+      h1 Here's How It Works
+      .col-xs-12.col-sm-3
+        h2.statistic 3
+        h4 Delicious vegetarian lunches delivered every week
+      .col-xs-12.col-sm-3.border-right
+        h2.statistic Sunday
+        h4 Food shows up at your door
+      .col-xs-12.col-sm-3.border-right
+        h2.statistic $36
+        h4 Paid Weekly
+      .col-xs-12.col-sm-3.border-right
+        h2.statistic 20
+        h4 Pounds of greenhouse emissions potentially saved every week
+
+.menu()
+  h1.text-center Select your first three meals
+  #root
+    div(data-reactroot)
+      = form_for :order, url: '/orders/populate' do |f|
+        .row.row-centered
+          - @box_variants.each do |variant|
+            .col-xs-12.col-md-4.col-centered.text-center.meal
+              label.meal-selection
+                input.hidden(type="checkbox" name="box_preference_attributes[preference][]" value="#{variant.id}")
+                .image
+                  = image_tag variant.display_image.attachment.url(:large)
+                h4 = variant.name
+
+        .row
+          .col-xs-12.content.text-center
+            = hidden_field_tag :variant_id,  @variant_id
+            = hidden_field_tag :quantity, 1
+            = hidden_field_tag :'subscription_line_item[quantity]', 1
+            = hidden_field_tag :'subscription_line_item[subscribable_id]', 1
+            = hidden_field_tag :'subscription_line_item[interval_length]', 1
+            = hidden_field_tag :'subscription_line_item[interval_units]', 'week'
+            = f.submit 'Choose 3 More', onclick: "window.dataLayer.push({event: 'click', clickAction:'selectorPurchase'})", class: "btn btn-primary btn-large purchase-link", disabled: 'disabled', :'data-disable-with' => 'Submitting...'
+
