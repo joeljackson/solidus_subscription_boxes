@@ -1,5 +1,5 @@
 module SolidusSubscriptionBoxes
-  class BoxPreference
+  class BoxPreference < ApplicationRecord
     belongs_to :preferable, polymorphic: true
     serialize :preference, Array
 
