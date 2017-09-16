@@ -42,3 +42,8 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+#Ignore sublime and gem files
+*.gem
+*.sublime-project
+*.sublime-workspace
