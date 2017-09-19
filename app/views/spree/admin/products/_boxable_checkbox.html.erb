@@ -1,0 +1,8 @@
+<% if !@product.has_variants? && @product.subscribable then %>
+  <div class="field four columns checkbox" data-hook="boxable">
+    <%= f.label :boxable do %>
+      <%= f.check_box :boxable %>
+      <%= Spree::Product.human_attribute_name(:boxable) %>
+    <% end %>
+  </div>
+<% end %>
