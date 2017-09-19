@@ -1,6 +1,6 @@
 class SolidusSubscriptionBoxes::SubscriptionBoxesController < Spree::StoreController
   def get_started
-    @box_variants = SolidusSubscriptionBoxes::SubscriptionPeriod.current.variants
-    @variant_id = Spree::Variant.first.id
+  	@variant_id = Spree::Product.find_by_slug(params[:product_id]).master
+    @box_variants = SolidusSubscriptionBoxes::SubscriptionPeriod.where(boxable_variant_id: @variant_id).current.variants
   end
 end
