@@ -1,7 +1,7 @@
 // Meal Selection Page
 $('.meal-selection').click( function(event) {
   if( $('.meal-selection input:checked').length > 3) {
-    alert("Please only pick 3 feals");
+    alert("Please only pick 3 meals");
     event.target.checked = false;
     event.preventDefault();
   }
