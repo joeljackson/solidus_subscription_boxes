@@ -1,0 +1,34 @@
+.meal img {
+  width: 100%;
+}
+.row-centered {
+  text-align: center;
+  -webkit-justify-content: center; /* Safari */
+  justify-content:         center;
+}
+.col-centered {
+  display: inline-block;
+  float: none;
+  /* reset the text-align */
+  text-align: left;
+  /* inline-block space fix */
+  margin-right: -4px;
+}
+.flash.notice {
+  background-color: green;
+}
+.flash.success {
+  background-color: green;
+}
+.get_started .meal-selection {
+  .image {
+    border: 4px transparent solid;
+    cursor: pointer;
+    &:hover {
+      border: 4px $color-disabled solid;
+    }
+  }
+  input:checked + .image {
+    border: 4px green solid;
+  }
+}
