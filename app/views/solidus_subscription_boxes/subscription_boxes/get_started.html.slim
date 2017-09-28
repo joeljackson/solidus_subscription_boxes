@@ -31,7 +31,7 @@
 
         .row
           .col-xs-12.content.text-center
-            = hidden_field_tag :variant_id,  @variant_id
+            = hidden_field_tag :variant_id,  @variant.id
             = hidden_field_tag :quantity, 1
             = hidden_field_tag :'subscription_line_item[quantity]', 1
             = hidden_field_tag :'subscription_line_item[subscribable_id]', 1

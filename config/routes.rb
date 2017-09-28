@@ -1,3 +1,3 @@
 SolidusSubscriptionBoxes::Engine.routes.draw do
-  get '/get-started' => 'subscription_boxes#get_started'
+  get '/get-started/:product_id' => 'subscription_boxes#get_started'
 end
