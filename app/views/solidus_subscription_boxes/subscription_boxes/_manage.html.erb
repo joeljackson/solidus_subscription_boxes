@@ -1,2 +1,7 @@
-<%= render partial: 'solidus_subscription_boxes/subscription_boxes/box_variants', 
-	locals: {box_variants: SolidusSubscriptionBoxes::SubscriptionPeriod.period_for_date(@user.subscriptions.first.actionable_date).variants} %>
+<% @user.subscriptions.each do |subscription| %>
+  <%= render partial: 'solidus_subscription_boxes/subscription_boxes/box_variants', 
+	         locals: { 
+	         	box_variants: SolidusSubscriptionBoxes::SubscriptionPeriod.period_for_date(subscription.actionable_date).variants
+	         	} 
+	         	%>
+<% end %>
