@@ -1,8 +1,8 @@
 <% @user.generate_spree_api_key! unless @user.spree_api_key %>
 
 <% @user.subscriptions.each do |subscription| %>
-	<h2>My Next Order (<%= subscription.actionable_date.strftime("%B %d")  %>)</h2>
-	<%= form_with url: "/api/v1/subscriptions/#{subscription.id}", method: 'put', class: 'menu' do |form| %>
+	<h2>My Next Order (<span class="actionable-date-update"><%= subscription.actionable_date.strftime("%B %d")  %></span>)</h2>
+	<%= form_with url: "/api/v1/subscriptions/#{subscription.id}", method: 'put', class: 'menu meal-selector' do |form| %>
 		<%= hidden_field_tag(:token, @user.spree_api_key) %>
     <%= render partial: 'solidus_subscription_boxes/subscription_boxes/box_variants',
 	    locals: {
