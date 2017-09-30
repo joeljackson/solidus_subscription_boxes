@@ -43,6 +43,9 @@ $(document).ajaxSuccess(function( event, xhr, settings ) {
     var actionableDate = new Date(Date.parse(xhr.responseJSON.actionable_date));
     $('.actionable-date-update').text(subscriptionFormatDate(actionableDate));
   }
+  if( settings.url.match(/\/api\/v1\/subscriptions\/\d*\/cancel/) ) {
+    $('.manage-subscription').remove();
+  }
 });
 
 
