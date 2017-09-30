@@ -26,7 +26,7 @@
   <h1 class="text-center">Select your first three meals</h1>
   <div>
     <%= form_for :order, url: '/orders/populate' do |f| %>
-      <%= render partial: 'box_variants', locals: {box_variants: @box_variants, preference_scope: "box_preference_attributes[preference][]"} %>
+      <%= render partial: 'box_variants', locals: {box_variants: @box_variants, preference_scope: "box_preference_attributes[preference][]", preferable: f.object} %>
       <div class="row">
         <div class="col-xs-12 content text-center">
           <%= hidden_field_tag :variant_id,  @variant.id %>
