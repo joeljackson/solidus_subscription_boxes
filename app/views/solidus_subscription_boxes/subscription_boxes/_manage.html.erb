@@ -1,6 +1,8 @@
+<% @user.generate_spree_api_key! unless @user.spree_api_key %>
+
 <% @user.subscriptions.each do |subscription| %>
-	<%= form_with url: " /api/v1/subscriptions/#{subscription.id}", method: 'put' do |form| %>
-		<% @user.generate_spree_api_key! unless @user.spree_api_key %>
+	<h2>My Next Order (<%= subscription.actionable_date.strftime("%B %d")  %>)</h2>
+	<%= form_with url: "/api/v1/subscriptions/#{subscription.id}", method: 'put', class: 'menu' do |form| %>
 		<%= hidden_field_tag(:token, @user.spree_api_key) %>
     <%= render partial: 'solidus_subscription_boxes/subscription_boxes/box_variants',
 	    locals: {
@@ -9,6 +11,24 @@
 				 preferable: subscription
 	    }
 		%>
-		<%= form.submit %>
+		<div class="row">
+		  <div class="col-xs-12 content text-center">
+				<%= form.submit 'Update My Order', class: "btn btn-primary btn-large purchase-link" %>
+			</div>
+		</div>
 	<% end %>
+	<div class="row">
+    <div class="col-xs-12 col-md-3 col-md-push-3 content text-center">
+			<%= form_with url: "/api/v1/subscriptions/#{subscription.id}/skip", class: 'menu' do |form| %>
+				<%= hidden_field_tag(:token, @user.spree_api_key) %>
+		    <%= form.submit 'Skip My Next Order', class: "btn btn-primary btn-large purchase-link" %>
+			<% end %>
+		</div>
+    <div class="col-xs-12 col-md-3 col-md-push-3 content text-center">
+			<%= form_with url: "/api/v1/subscriptions/#{subscription.id}/cancel", class: 'menu' do |form| %>
+				<%= hidden_field_tag(:token, @user.spree_api_key) %>
+			  <%= form.submit 'Cancel', class: "btn btn-primary btn-large purchase-link" %>
+		  <% end %>
+	  </div>
+	</div>
 <% end %>
