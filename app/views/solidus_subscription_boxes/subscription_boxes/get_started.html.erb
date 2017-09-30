@@ -35,7 +35,7 @@
           <%= hidden_field_tag :'subscription_line_item[subscribable_id]', 1 %>
           <%= hidden_field_tag :'subscription_line_item[interval_length]', 1 %>
           <%= hidden_field_tag :'subscription_line_item[interval_units]', 'week' %>
-          <%= f.submit 'Choose 3 More', onclick: "window.dataLayer.push({event: 'click', clickAction:'selectorPurchase'})", class: "btn btn-primary btn-large purchase-link", disabled: 'disabled', :'data-disable-with' => 'Submitting...' %>
+          <%= f.submit 'Choose 3 More', onclick: "window.dataLayer.push({event: 'click', clickAction:'selectorPurchase'})", class: "btn btn-primary btn-large purchase-link meal-update", disabled: 'disabled', :'data-disable-with' => 'Submitting...' %>
         </div>
       </div>
     <% end %>
