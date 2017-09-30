@@ -2,7 +2,7 @@
   <%- box_variants.each do |variant| %>
     <div class="col-xs-12 col-md-4 col-centered text-center meal">
       <label class="meal-selection">
-        <input class="hidden" type="checkbox" name="box_preference_attributes[preference][]" value="<%= variant.id %>">
+        <input class="hidden" type="checkbox" name="<%= preference_scope %>" value="<%= variant.id %>">
         <div class="image">
           <%= image_tag variant.display_image.attachment.url(:large) %>
         </div>
