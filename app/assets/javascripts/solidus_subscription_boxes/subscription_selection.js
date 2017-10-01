@@ -46,6 +46,9 @@ $(document).ajaxSuccess(function( event, xhr, settings ) {
   if( settings.url.match(/\/api\/v1\/subscriptions\/\d*\/cancel/) ) {
     $('.manage-subscription').remove();
   }
+  if( settings.url.match(/\/api\/v1\/subscriptions\/\d*$/)) {
+    alert("You've updated your subscription.")
+  }
 });
 
 
