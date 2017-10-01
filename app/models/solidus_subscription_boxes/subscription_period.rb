@@ -5,7 +5,11 @@ module SolidusSubscriptionBoxes
     belongs_to :boxable_variant, class_name: 'Spree::Variant', foreign_key: 'boxable_variant_id'
 
     def self.current
-      SubscriptionPeriod.where('start_date <= ?', Date.today).order('start_date desc').last
+      period_for_date(Date.today)
+    end
+
+    def self.period_for_date(date)
+      SubscriptionPeriod.where('start_date <= ?', date).order('start_date desc').last
     end
   end
 end
