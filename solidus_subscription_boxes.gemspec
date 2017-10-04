@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'state_machines'
   s.add_dependency 'i18n'
   s.add_dependency 'slim'
+  s.add_dependency 'sass-rails'
 
   s.add_development_dependency 'byebug'
   #s.add_development_dependency 'capybara'
