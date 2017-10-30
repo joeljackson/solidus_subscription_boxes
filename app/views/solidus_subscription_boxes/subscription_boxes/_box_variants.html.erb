@@ -5,8 +5,8 @@
         <input class="hidden" type="checkbox" name="<%= preference_scope %>" value="<%= variant.id %>" <%= is_checked(preferable, variant) %>>
         <div class="image">
           <%= image_tag variant.display_image.attachment.url(:large) %>
+          <h4><%= variant.name %></h4>
         </div>
-        <h4><%= variant.name %></h4>
       </label>
     </div>
   <% end %>

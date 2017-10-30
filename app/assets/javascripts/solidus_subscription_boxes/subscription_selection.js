@@ -22,7 +22,7 @@ $('.meal-selection').click( function(event) {
   }
 
   if( $('.meal-selection input:checked').length > 3 ) {
-    alert("Please only pick 3 meals");
+    alert("Only choose 3 meals");
     event.target.checked = false;
     event.preventDefault();
   }

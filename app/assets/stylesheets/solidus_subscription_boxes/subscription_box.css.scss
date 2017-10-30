@@ -1,5 +1,3 @@
-$color-disabled: #283428;
-
 .meal img {
   width: 100%;
 }
@@ -24,13 +22,13 @@ $color-disabled: #283428;
 }
 .meal-selector .meal-selection,  {
   .image {
-    border: 4px transparent solid;
+    border: 3px transparent solid;
     cursor: pointer;
     &:hover {
-      border: 4px $color-disabled solid;
+      border: 3px $gray-500 solid;
     }
   }
   input:checked + .image {
-    border: 4px green solid;
+    border: 3px $btn-box-shadow-color solid;
   }
 }
