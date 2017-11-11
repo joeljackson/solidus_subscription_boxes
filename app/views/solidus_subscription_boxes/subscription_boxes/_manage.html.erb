@@ -8,7 +8,7 @@
           <%= render partial: 'solidus_subscription_boxes/subscription_boxes/box_variants',
             locals: {
               box_variants: SolidusSubscriptionBoxes::SubscriptionPeriod.period_for_date(subscription.actionable_date).variants,
-              preference_scope: "subscription[box_preference_attributes][preference][]",
+              preference_scope: "subscription[box_preference_attributes][preference]",
               preferable: subscription
             }
           %>

@@ -13,29 +13,39 @@ function subscriptionFormatDate(date) {
   return monthNames[monthIndex] + ' ' + day;
 }
 
+$('.box-controls i').click(function(event) {
+  var value = parseInt($(this).siblings('input').val());
+  if(this.classList.contains('add')) {
+    value = Math.min(value + 1, 9);
+  } else {
+    value = Math.max(value - 1, 0);
+  }
+  $(this).siblings('input').val(value);
 
-$('.meal-selection').click( function(event) {
+
+  var numberOfMeals = function() {
+    var total = 0;
+    $('.box-controls input').each( function(element) {
+      total = total + parseInt(this.value);
+    });
+    return total;
+  }
+
   if( $('body.get_started').length > 0 ) {
     var submitButtonText = "Subscribe Now";
   } else {
     var submitButtonText = "Update My Order";
   }
 
-  if( $('.meal-selection input:checked').length > 3 ) {
-    alert("Please only pick 3 meals");
-    event.target.checked = false;
-    event.preventDefault();
-  }
-
-  if( $('.meal-selection input:checked').length == 3 ) {
+  if( numberOfMeals() >= 3 ) {
     $('input[type=submit].meal-update').removeAttr('disabled');
     $('input[type=submit].meal-update').attr("value",submitButtonText);
   } else {
     $('input[type=submit].meal-update').attr("disabled","disabled");
-    $('input[type=submit].meal-update').attr("value","Choose " + (3 - $('.meal-selection input:checked').length).toString() + " More");
+    $('input[type=submit].meal-update').attr("value","Choose " + (Math.max(3 - numberOfMeals(), 0)).toString() + " More");
   }
 
-  $('.number_more_meals').text(3 - $('.meal-selection input:checked').length);
+  $('.number_more_meals').text(3 - numberOfMeals());
 });
 
 $(document).ajaxSuccess(function( event, xhr, settings ) {

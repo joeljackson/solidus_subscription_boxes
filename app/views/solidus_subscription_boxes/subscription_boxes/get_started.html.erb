@@ -1,41 +1,49 @@
-<div class="container-fluid">
+<div class="container-fluid bg-jumbotron mb-5">
   <section class="how-it-works">
     <div class="row text-center how-it-works background-grey">
-      <h1>Here's How It Works</h1>
-      <div class="col-xs-12 col-sm-3">
-        <h2 class="statistic">3</h2>
-        <h4>Delicious vegetarian lunches delivered every week</h4>
+      <div class="col-12 pt-4 pb-4">
+        <h1 class="font-weight-bold">Here's How It Works</h1>
       </div>
-      <div class="col-xs-12 col-sm-3 border-right">
-        <h2 class="statistic">Sunday</h2>
-        <h4>Food shows up at your door</h4>
+      <div class="col-12 col-sm">
+        <h2 class="statistic">3 meals</h2>
+        <h5>pick your meals each week</h4>
       </div>
-      <div class="col-xs-12 col-sm-3 border-right">
+      <span class="chevron right"></span>
+      <div class="col-12 col-sm">
         <h2 class="statistic">$36</h2>
-        <h4>Paid Weekly<h4>
+        <h4>per week<h4>
+        <h5 class="font-weight-bold font-italic">Shipping is FREE</h4>
       </div>
-      <div class="col-xs-12 col-sm-3 border-right">
-        <h2 class="statistic">20</h2>
-        <h4>Pounds of greenhouse emissions potentially saved every week</h4>
+      <span class="chevron right"></span>
+      <div class="col-12 col-sm">
+        <h2 class="statistic">Sunday</h2>
+        <h5>Delivered to your door</h4>
+      </div>
+      <span class="chevron right"></span>
+      <div class="col-12 col-sm">
+        <h2 class="statistic">NO</h2>
+        <h4 class="font-weight-bold">COMMITMENTS</h3>
+        <h5>cancel anytime, online</h4>
       </div>
     </div>
   </section>
 </div>
 
 <div class="menu">
-  <h1 class="text-center">Select your first three meals</h1>
-  <div>
+  <h2 class="text-center">Choose Your First Three Meals</h2>
+  <h4 class="text-center">We update the menu seasonally to use the freshest ingredients</h4>
+  <div class="pt-5">
     <%= form_for :order, url: '/orders/populate' do |f| %>
-      <%= render partial: 'box_variants', locals: {box_variants: @box_variants, preference_scope: "box_preference_attributes[preference][]", preferable: f.object} %>
-      <div class="row">
-        <div class="col-xs-12 content text-center">
+      <%= render partial: 'box_variants', locals: {box_variants: @box_variants, preference_scope: "box_preference_attributes[preference]", preferable: f.object} %>
+      <div class="row mt-5">
+        <div class="col-12 content text-center">
           <%= hidden_field_tag :variant_id,  @variant.id %>
           <%= hidden_field_tag :quantity, 1 %>
           <%= hidden_field_tag :'subscription_line_item[quantity]', 1 %>
           <%= hidden_field_tag :'subscription_line_item[subscribable_id]', 1 %>
           <%= hidden_field_tag :'subscription_line_item[interval_length]', 1 %>
           <%= hidden_field_tag :'subscription_line_item[interval_units]', 'week' %>
-          <%= f.submit 'Choose 3 More', onclick: "window.dataLayer.push({event: 'click', clickAction:'selectorPurchase'})", class: "btn btn-primary btn-large purchase-link meal-update", disabled: 'disabled', :'data-disable-with' => 'Submitting...' %>
+          <%= f.submit 'Choose 3 More', onclick: "window.dataLayer.push({event: 'click', clickAction:'selectorPurchase'})", class: "btn btn-primary btn-lg purchase-link meal-update", disabled: 'disabled', :'data-disable-with' => 'Submitting...' %>
         </div>
       </div>
     <% end %>

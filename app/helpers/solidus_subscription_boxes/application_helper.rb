@@ -7,5 +7,13 @@ module SolidusSubscriptionBoxes
         ""
       end
     end
+
+    def preferable_value(box_preference, variant_id)
+      if box_preference.present?
+        box_preference.preference.fetch(variant_id.to_s){ 0 }
+      else
+        0
+      end
+    end
   end
 end

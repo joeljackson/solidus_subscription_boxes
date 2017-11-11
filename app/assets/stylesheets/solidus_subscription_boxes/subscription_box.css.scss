@@ -1,5 +1,3 @@
-$color-disabled: #283428;
-
 .meal img {
   width: 100%;
 }
@@ -22,15 +20,10 @@ $color-disabled: #283428;
 .flash.success {
   background-color: green;
 }
-.meal-selector .meal-selection,  {
-  .image {
-    border: 4px transparent solid;
-    cursor: pointer;
-    &:hover {
-      border: 4px $color-disabled solid;
-    }
-  }
-  input:checked + .image {
-    border: 4px green solid;
-  }
+.meal-selector input{
+  width: 100px;
 }
+.box-controls i {
+  cursor: pointer;
+}
+
