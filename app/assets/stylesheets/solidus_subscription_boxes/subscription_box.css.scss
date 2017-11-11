@@ -20,15 +20,10 @@
 .flash.success {
   background-color: green;
 }
-.meal-selector .meal-selection,  {
-  .image {
-    border: 3px transparent solid;
-    cursor: pointer;
-    &:hover {
-      border: 3px $gray-500 solid;
-    }
-  }
-  input:checked + .image {
-    border: 3px $btn-box-shadow-color solid;
-  }
+.meal-selector input{
+  width: 100px;
 }
+.box-controls i {
+  cursor: pointer;
+}
+
