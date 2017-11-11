@@ -5,9 +5,9 @@
         <%= image_tag variant.display_image.attachment.url(:large) %>
         <h4><%= variant.name %></h4>
       </div>
-      <div class="box-controls display-3">
+      <div class="box-controls display-4">
         <i class="fa fa-3 fa-minus-circle remove" aria-hidden="true"></i>
-        <input class="border-0 col-4 text-right" type="number" name="<%= preference_scope %>" value="0" readonly>
+        <input class="border-0 col-4 text-right" type="number" name="<%= preference_scope %>[<%= variant.id %>]" value="<%= preferable_value(preferable.box_preference, variant.id) %>" readonly>
         <i class="fa fa-3 fa-plus-circle add" aria-hidden="true"></i>
       </div>
     </div>
