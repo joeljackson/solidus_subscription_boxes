@@ -32,12 +32,12 @@ $('.box-controls i').click(function(event) {
   }
 
   if( $('body.get_started').length > 0 ) {
-    var submitButtonText = "Subscribe Now";
+    var submitButtonText = "Buy Now";
   } else {
     var submitButtonText = "Update My Order";
   }
 
-  if( numberOfMeals() >= 3 ) {
+  if( numberOfMeals() >= 1 ) {
     $('input[type=submit].meal-update').removeAttr('disabled');
     $('input[type=submit].meal-update').attr("value",submitButtonText);
   } else {
@@ -45,7 +45,7 @@ $('.box-controls i').click(function(event) {
     $('input[type=submit].meal-update').attr("value","Choose " + (Math.max(3 - numberOfMeals(), 0)).toString() + " More");
   }
 
-  $('.number_more_meals').text(3 - numberOfMeals());
+  $('.number_more_meals').text(1 - numberOfMeals());
 });
 
 $(document).ajaxSuccess(function( event, xhr, settings ) {

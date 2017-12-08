@@ -11,6 +11,8 @@ module Spree
 
         private
         def set_box_preference
+          @order.line_items.each { |line_item| @order.contents.remove_line_item(line_item) }
+          @order.reload
           if params[:box_preference_attributes]
             params[:box_preference_attributes].permit!
             @order.update_attributes(box_preference_attributes: params[:box_preference_attributes].to_hash)
