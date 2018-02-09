@@ -6,3 +6,22 @@
     <% end %>
   </div>
 <% end %>
+
+<% if @product.boxable then %>
+  <%= f.fields_for :master_attributes, @product.master do |master_form|%>
+    <%= master_form.hidden_field :id%>
+    <%= master_form.fields_for :"subscription_periods_attributes[]", SolidusSubscriptionBoxes::SubscriptionPeriod.new do |subscription_period_form| %>
+        <%= subscription_period_form.text_field :start_date %>
+        <%= subscription_period_form.text_field :variant_ids, multiple: true %>
+        <%= subscription_period_form.text_field :variant_ids, multiple: true %>
+        <%= subscription_period_form.text_field :variant_ids, multiple: true %>
+    <% end %>
+  <% end %>
+  <%- @product.subscription_periods.order('start_date desc').each do |period| %>
+    <p><%= period.start_date %></p>
+    <%- period.variants.each do |period_variant| %>
+      <%= period_variant.name %>
+    <% end %>
+    </div>
+  <% end %>
+<% end %>
