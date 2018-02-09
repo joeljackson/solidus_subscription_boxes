@@ -11,7 +11,10 @@ module Spree
 
         private
         def set_box_preference
-          @order.line_items.each { |line_item| @order.contents.remove_line_item(line_item) }
+          line_item_ids = @order.line_items.map(&:id)
+          line_item_ids.each { |line_item_id|
+            @order.contents.remove_line_item(LineItem.find(line_item_id))
+          }
           @order.reload
           if params[:box_preference_attributes]
             params[:box_preference_attributes].permit!
