@@ -9,7 +9,7 @@ module SolidusSubscriptionBoxes
     end
 
     def self.period_for_date(date)
-      SubscriptionPeriod.where('start_date <= ?', date).order('start_date desc').first
+      SubscriptionPeriod.where('start_date <= ?', date).order('start_date desc').limit(1).first
     end
   end
 end
