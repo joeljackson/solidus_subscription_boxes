@@ -3,7 +3,6 @@ module SolidusSubscriptions
     module Checkout
       module UpdatePreferenceDecorator
         def order
-          byebug
           order = super
           order.box_preference = subscription.box_preference unless order.box_preference.present?
         end
