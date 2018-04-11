@@ -5,7 +5,7 @@ module Spree
         def self.prepended(base)
           base.after_action(
             :set_box_preference,
-            only: :populate
+            only: [:populate, :update]
           )
         end
 
